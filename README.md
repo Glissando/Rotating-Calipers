@@ -85,7 +85,7 @@ for(int i=0;i<polygon.edgeCount();i++)
 
 ## Proof
 
-The theorem that this algorithm was built upon was proved by first breaking it apart into two theorems whose results would lead to the final theorem. ![Example GIF](images/theta.png)
+The theorem that this algorithm was built upon was proved by first breaking it apart into two theorems whose results would lead to the final theorem.
 
 ## References
 
