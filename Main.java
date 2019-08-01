@@ -28,6 +28,7 @@ public class Main
         screen.hull = hull;
         screen.OMBB = rect;
         screen.AABB = Caliper.boundingBox(hull);
+        screen.repaint();
     }
 
     public static List<Point> randomPoints(int n)

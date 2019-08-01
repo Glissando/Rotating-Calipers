@@ -14,14 +14,13 @@ public final class Caliper
     {
         Rectangle[] rects = new Rectangle[polygon.edgeCount()];
 
-        //Iterate over edge of the convex hull
+        //Iterate over the edges of the convex hull
         for(int i=0;i<polygon.edgeCount();i++)
         {
             Point edge = polygon.getEdge(i);
-            //Rotate the polygon so that the selected edge is parallel to a major axis
+            //Rotate the polygon so that the current edge is parallel to a major axis
             //The y-Axis in this use case
             double theta = Math.acos(edge.normalize().y);
-            //System.out.println(theta);
             polygon.rotate(theta);
             //Calculate a bounding box
             rects[i] = boundingBox(polygon);
@@ -43,7 +42,7 @@ public final class Caliper
             }
         }
 
-        //We're done! :D
+        //We're done!  ♪~ ᕕ(ᐛ)ᕗ
         return box;
     }
 

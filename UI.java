@@ -31,7 +31,6 @@ public class UI
         AABB = new JCheckBox("Bounding Box");
         OMBB.setSelected(true);
 
-        random.setBounds(700,500,100,40);
         screen.add(random);
         screen.add(hull);
         screen.add(OMBB);
@@ -55,6 +54,7 @@ public class UI
         //screen.setVisible(true);
         screen.invalidate();
         screen.repaint();
+        screen.setVisible(true);
         
         screen.addMouseListener(new MouseAdapter()
         { 
@@ -102,7 +102,7 @@ public class UI
     public void onClick(MouseEvent e)
     {
         java.awt.geom.Point2D p2d = e.getPoint();
-        Point point = new Point(p2d.getX(), p2d.getY());
+        Point point = new Point(p2d.getX()+6, p2d.getY()+18);
         if(e.getButton() == MouseEvent.BUTTON1)
         {
             screen.points.add(point);
@@ -120,7 +120,7 @@ public class UI
                     if(screen.points.size() > 3)
                         Main.createOMBB(screen.points);
                     screen.repaint();
-                    
+                    return;
                 }
             }
         }

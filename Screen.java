@@ -7,12 +7,16 @@
 import java.util.List;
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Point2D;
 
 public class Screen extends JPanel 
 {
     private static final long serialVersionUID = 1L;
     private int screenWidth;
     private int screenHeight;
+    AffineTransform transform;
     Polygon hull;
     List<Point> points;
     Rectangle OMBB;
@@ -23,8 +27,8 @@ public class Screen extends JPanel
 
     public Screen()
     {
-        screenWidth = 720;
-        screenHeight = 1280;
+        screenWidth = 1280;
+        screenHeight = 720;
 
         // create a basic JFrame
         JFrame.setDefaultLookAndFeelDecorated(true);
@@ -34,8 +38,8 @@ public class Screen extends JPanel
         
         // add panel to main frame
         frame.add(this);
-        
-        frame.setResizable(false);
+        setBackground(Color.BLACK);
+        frame.setResizable(true);
         frame.setVisible(true);
     }
 
@@ -43,7 +47,6 @@ public class Screen extends JPanel
     {
         screenWidth = width;
         screenHeight = height;
-
         // create a basic JFrame
         JFrame.setDefaultLookAndFeelDecorated(true);
         frame = new JFrame("Rotating Calipers");
@@ -52,25 +55,34 @@ public class Screen extends JPanel
         
         // add panel to main frame
         frame.add(this);
-        
-        frame.setResizable(false);
+        setBackground(Color.BLACK);
+        frame.setResizable(true);
         frame.setVisible(true);
-    }
 
+        frame.addComponentListener(new ComponentAdapter() {
+            public void componentResized(ComponentEvent componentEvent) {
+                java.awt.Rectangle b = componentEvent.getComponent().getBounds();
+
+                componentEvent.getComponent().setBounds(b.x, b.y, b.width, b.width * 9/16);
+            }
+        });
+    }
+    
     public void paint(Graphics page)
     {
-        super.paint(page);
         //Resize screen
         double scaleX = getSize().getWidth() / screenWidth;
         double scaleY = getSize().getHeight() / screenHeight;
         Graphics2D g2d = (Graphics2D)page;
+        transform = g2d.getTransform();
+        
         g2d.scale(scaleX, scaleY);
-        super.paint(page);
 
         page.setColor(Color.BLACK);
         page.fillRect(0, 0, screenWidth, screenHeight);
         //Draw the polygons
-
+        super.paint(page);
+        
         if(points != null)
         {
             for(int i=0;i<points.size();i++)
@@ -93,5 +105,12 @@ public class Screen extends JPanel
         {
             OMBB.draw(page, Color.RED);
         }
+    }
+
+    public Point2D screenPos(Point2D p)
+    {
+        Point2D ret = null;
+        transform.transform(p, ret);
+        return ret;
     }
 }
