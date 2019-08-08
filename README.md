@@ -39,19 +39,19 @@ For my implementation I used the algorithm to generate a minimum bounding box, t
 ## Definitions
 Starting off this paper with a quick rundown with the definition of the more obscure terms that will be used in it.
 
-**Convex Hull** - the smallest convex set that contains a set of points S. A convex hull is unique and is the smallest possible volume containing an object or set of points.
+**Convex Hull** - The smallest convex set that contains a set of points S. A convex hull is unique and is the smallest possible volume containing an object or set of points.
 
 **Bounding Volume** - In computational geometry a bounding volume for a set of arbitrary objects is a volume that completly encompasses all the objects inside. A variety of structures can act as bounding volumes such as convex polygons, rectangles or spheres.
 
 **Supporting Lines** - A line that goes through the polygon such that the whole polygon lies on one side of the line is called a supporting line.
 
-**Antipodal Points** - a pair of vertices such that one can draw two parallel supporting lines through them.
+**Antipodal Points** - A pair of vertices such that one can draw two parallel supporting lines through them.
 
-**Diameter of a polygon** - the largest distance between a pair of vertices in the set of points S.
+**Diameter of a polygon** - The largest distance between a pair of vertices in the set of points S.
 
 **AABB(Axis Aligned Bounding Box)** - The smallest rectangle containing the point such at each side is parallel to the x or y axis.
 
-**OMBB(Oriented Minimum Bounding Box)** - the smallest rectangle where the orientation does not matter.
+**OMBB(Oriented Minimum Bounding Box)** - The smallest rectangle where the orientation does not matter.
 
 ## Description
 
