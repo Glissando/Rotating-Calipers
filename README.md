@@ -39,6 +39,8 @@ Starting off this paper with a quick rundown with the definition of the more obs
 
 **Convex Hull** - the smallest convex set that contains a set of points S. A convex hull is unique and is the smallest possible volume containing an object or set of points.
 
+**Bounding Volume** - In computational geometry a bounding volume for a set of arbitrary objects is a volume that completly encompasses all the objects inside. A variety of structures can act as bounding volumes such as convex polygons, rectangles or spheres.
+
 **Supporting Lines** - A line that goes through the polygon such that the whole polygon lies on one side of the line is called a supporting line.
 
 **Antipodal Points** - a pair of vertices such that one can draw two parallel supporting lines through them.
@@ -105,7 +107,7 @@ The theorem that this algorithm was built upon was proved by first breaking it a
 
 ## Applications
 
-The Rotating calipers algorithm and computational geometry as a whole has a variety of applications in many fields ranging from computer graphics to computer networking primarily for visible testing and collision detection. Rotating Calipers is used in to generate simple bounding polygons that can be used in physics simulations, this is useful due to the ease in performing many operations on rectangles such as intersections between points. This is useful because in the field of computer graphics many operations such as ray tracing are expensive, by checking if a ray intersects its an objects bonding box before doing the ray intersections this can avoid unnecssary expensive operations. This type of testing is known as visibility testing in computer graphics.
+The Rotating calipers algorithm and computational geometry as a whole has a variety of applications in many fields ranging from computer graphics to computer networking primarily for visible testing and collision detection. Rotating Calipers is used in to generate simple bounding polygons that can be used in physics simulations, this is useful due to the ease in performing many operations on rectangles such as intersections between points. This is useful because in the field of computer graphics many operations such as ray tracing are expensive, by checking if a ray intersects its an objects bonding box before doing the ray intersections this can avoid unnecssary expensive operations. This type of testing is known as visibility testing in computer graphics. An example of this can be seen in the action of calculating a bounding box for a car. A physics simulations would need to check if the car is intersecting the ground and perform the neccessary to seperate them, if one used a sphere or ellipsoid as a bounding volume then these would intersect and force the calculation, but a bounding box would not intersect and act as an accurate approximation of the cars area.
 
 ## References
 
