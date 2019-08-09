@@ -22,7 +22,7 @@ Final Project for Data Structure & Algorithms Summer 2019.
 
 ## Introduction
 
-The Rotating Calipers algorithm initial made by Michael Shamos. Shamos used this algorithm to generate all antipodal pairs of points on a convex polygon and computing the diameter of a convex polygon. This algorithm is based on a proof by Freeman and Shapira and was later generalized by George Toussaint to work in many more use cases such as the surface of a cone. Godfriend Toussaint gave this algorithm it's name, Rotating Calipers referencing a pair of calipers going across the polygon. My motivations for choosing this algorithm was so I could learn more about Computational Geometry.
+The Rotating Calipers algorithm was initially made by Michael Shamos. Shamos used this algorithm to generate all antipodal pairs of points on a convex polygon and to compute the diameter of a convex polygon. This algorithm is based on a proof by Freeman and Shapira and was later generalized by George Toussaint to work in many more use cases such as on the surface of a cone. Godfriend Toussaint gave this algorithm it's name, Rotating Calipers referencing a pair of calipers going across the polygon. My motivations for choosing this algorithm was so I could learn more about the field of Computational Geometry.
 
 The theorem by Shapira states 
 
@@ -41,9 +41,9 @@ Starting off this paper with a quick rundown with the definition of the more obs
 
 **Convex Hull** - The smallest convex set that contains a set of points S. A convex hull is unique and is the smallest possible volume containing an object or set of points.
 
-**Bounding Volume** - In computational geometry a bounding volume for a set of arbitrary objects is a volume that completly encompasses all the objects inside. A variety of structures can act as bounding volumes such as convex polygons, rectangles or spheres.
+**Bounding Volume** - In computational geometry a bounding volume for a set of arbitrary objects is a volume that completly encompasses all the objects inside. A variety of structures can act as bounding volumes such as convex polygons, rectangles, triangles or spheres.
 
-**Supporting Lines** - A line that goes through the polygon such that the whole polygon lies on one side of the line is called a supporting line.
+**Supporting Lines** - A line that goes through the polygon such that the whole polygon lies on one side of the line.
 
 **Antipodal Points** - A pair of vertices such that one can draw two parallel supporting lines through them.
 
@@ -73,7 +73,7 @@ The algorithm operates in seven steps
 7. Return the rectangle with the minimum area.
 
 
-The criteria of the fourth and fifth step can be changed so that instead of checking and updating the rectangles area you can choose to check the perimeter and minimize for that.
+The criteria of the fourth and fifth step can be changed so that instead of checking and updating the rectangles area you can choose to check the perimeter and minimize for that. This will give you rectangle of smallest perimeter rather than area.
 
 ## Performance
 
