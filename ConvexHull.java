@@ -28,10 +28,6 @@ public final class ConvexHull
 		if (points.size() <= 1)
 			return new ArrayList<>(points);
 		
-		// Andrew's monotone chain algorithm. Positive y coordinates correspond to "up"
-		// as per the mathematical convention, instead of "down" as per the computer
-		// graphics convention. This doesn't affect the correctness of the result.
-		
 		List<Point> upperHull = new ArrayList<>();
 		for (Point p : points) 
 		{
