@@ -64,7 +64,7 @@ final class Point implements Comparable<Point>, Renderable
 
 	public double dot(Point p)
 	{
-		return this.x * p.getX() + this.y + p.getY();
+		return this.x * p.getX() + this.y * p.getY();
 	}
 
 	public double distance(Point p)
@@ -99,9 +99,19 @@ final class Point implements Comparable<Point>, Renderable
 		return new Point(-y, x);
 	}
 
+	public Point negate()
+	{
+		return new Point(-y, -x);
+	}
+
 	public int hashCode() 
 	{
 		return Objects.hash(x, y);
+	}
+
+	public Point clone()
+	{
+		return new Point(x, y);
 	}
 	
 	public int compareTo(Point other) 
